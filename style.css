@@ -1,5 +1,157 @@
 html {
   margin: 0;
+  font-family: Arial;
+  background: #0b5e2b;
+  color: white;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10px;
+}
+
+/* TABLE */
+#table {
+  position: relative;
+  width: 100vw;
+  height: 90vh; 
+}
+
+/* CENTER */
+#center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* DECK */
+#deck {
+  width: 80px;
+  height: 120px;
+  position: relative;
+}
+
+.card-back {
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  background-image: u;
+  border-radius: 10px;
+  top: calc(var(--i) * 2px);
+  left: calc(var(--i) * 2px);
+  transform: rotate(calc(var(--i) * 2deg));
+}
+
+/* PILE */
+#pile {
+  width: 80px;
+  height: 120px;
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  background-image: url("images/card.jpg");
+  background-size: cover;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  top: calc(var(--i) * 3px);
+}
+
+/* PLAYER HAND */
+#hand {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.player-card {
+  grid-row: 21;  
+  grid-column: 11;
+  width: 100px;
+  height: 120px;
+  background-image: url("images/card.jpg");
+  background-size: cover;
+  color: transparent;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.player-card:hover {
+  transform: translateY(-10px);
+}
+
+/* OPPONENTS */
+.opponent {
+  position: absolute;
+  text-align: center;
+}
+
+.top {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cards-back {
+  width: 70px;
+  height: 100px;
+  background-image: url("images/card.jpg");
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.cards-back.vertical {
+  width: 100px;
+  height: 70px;
+  background-image: url("images/card1.jpg");
+  background-size: cover;
+}
+
+/* BUTTON */
+button {
+  top: 140px;
+  left: 50%;
+  transform: translateX(0%);
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+html {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at center, #1a1a1a, #000);
   color: white;
@@ -89,6 +241,8 @@ h1 {
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
+  padding-bottom: 20px;
+
 }
 
 .player-card {
@@ -165,7 +319,7 @@ h1 {
 
 /* BUTTON */
 button {
-  padding: 12px 22px;
+  padding: 20px 100px 20px 100px;
   font-weight: bold;
   border-radius: 10px;
   border: none;
@@ -184,14 +338,20 @@ button:focus{
 }
 
 #mode.container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
+  transition: transform 0.15s ease;
+}
+
+.container img{
+  width: 300px;
+  padding-top: 30px;
+  transform: translateY(-12px) scale(1.05);
 }
 
 .mode-buttons {
@@ -211,23 +371,4 @@ button:focus{
   border-radius: 16px;
   border: 2px solid #222;
   width: min(90vw, 420px);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  #center {
-    gap: 15px;
-    padding: 12px;
-  }
-
-  #mode.container {
-    width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
 }
