@@ -68,7 +68,7 @@ function loadGameUI(){
     let display = document.getElementById('mode');
 
     display.innerHTML = `
-    <h1>Manotaso</h1>
+    <img src="images/title.png" alt="Title" style="width: 150px; align-self: center; display: flex; Justify-self: ;">
 
     <div id="table">
 
